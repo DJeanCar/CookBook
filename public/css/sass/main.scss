@@ -1,0 +1,75 @@
+/* Colors */
+$orange: #ff8f00;
+$white: #ffffff;
+$color_body: #f5f7f8;
+$color_category: #ff8f00;
+
+h1, h2 {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'PT Serif', serif; 
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+
+.home_intro {
+	background-image: url("../img/bg_home.jpg");
+	background-size: cover;
+	/* background: $orange; */
+	color: $white;
+	padding: 5em 0;
+}
+
+.header__title {
+	font-weight: bold;
+	font-size: 54px;
+}
+
+.header__description {
+	font-size: 26px;
+}
+
+.recipes {
+	color: #546672;
+	padding: 2em;
+	background: $color_body;
+}
+
+.recipes__title {
+	font-size: 20px;
+}
+
+.recipe {
+	padding: 1.5em 3em;
+}
+
+.recipe:hover {
+	box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+	-webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+	-moz-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+	cursor: pointer;
+}
+
+.recipe__name {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.recipe__data {
+	font-style: italic;
+}
+
+.recipe__category {
+	background-color: $color_category;
+	color: $white;
+	font-weight: bold;
+}
+
+.footer {
+	padding: 2em 0;
+}
