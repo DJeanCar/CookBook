@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  	"server" : "supervisor server.js",
+    "server": "supervisor server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "swig": "^1.4.2"
+  }
 }
