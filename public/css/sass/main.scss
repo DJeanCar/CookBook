@@ -17,6 +17,10 @@ body {
 	margin-bottom: 0;
 }
 
+.no-margin-top {
+	margin-top: 0;
+}
+
 .home_intro {
 	background-image: url("../img/bg_home.jpg");
 	background-size: cover;
@@ -40,7 +44,7 @@ body {
 	background: $color_body;
 }
 
-.recipes__title {
+.subtitle {
 	font-size: 20px;
 }
 
@@ -72,4 +76,32 @@ body {
 
 .footer {
 	padding: 2em 0;
+}
+
+.recipes__create_title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.recipes__form {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.ingredient__add {
+	font-size: 14px;
+	color: #4db6ac;
+}
+
+.ingredient__add:hover {
+	cursor: pointer;
+	color: #26a69a;
+}
+
+.recipe__btn_create {
+	margin: 1em 0;
+}
+
+.btn-cancel {
+	background: #f44336;
 }
