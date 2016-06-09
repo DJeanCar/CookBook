@@ -1,0 +1,11 @@
+{
+  "name": "cookbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  	"server" : "supervisor server.js",
+  },
+  "author": "",
+  "license": "ISC"
+}
