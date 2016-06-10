@@ -1,54 +1,171 @@
 <section class="recipes">
 	<div class="container">
 		<div class="row">
-			<div class="col s12">
-				<h4 class="center-align recipes__create_title">Ceviche</h4>
-			</div>
-		</div>
-		<div class="recipes__form">
-			<div class="row">
-				<div class="col s12">
+			<div class="col s12 m6 l8">
+				<div class="recipe__header">
+					<div class="row no-margin-bottom">
+						<div class="col s12">
+							<div class="recipe__title">
+								<h3>Arroz con pollo</h3>
+							</div>
+						</div>
+						<div class="col s12"> 
+							<div class="recipe__options">
+								<a href="#!" class="btn waves-effect teal">Update</a>
+								<a href="#!" class="btn waves-effect red">Delete</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="recipe_info">
 					<div class="row">
-						<div class="col s4">
-							<label for="last_name">Category</label>
+						<div class="col s12 l6 recipe_info__item">
+							<div class="bold recipe_info__subtitle subtitle">Chef: </div>
+							<div class="regular">Jean Mariños</div>
 						</div>
-						<div class="col s8">
-							<span class="recipe__category chip">Pescado</span>
+						<div class="col s12 l6 recipe_info__item">
+							<div class="bold recipe_info__subtitle subtitle">Category: </div>
+							<div class="recipe__category chip regular">Pescado</div>
 						</div>
-						<div class="input-field col s12">
-							<select>
-								<option value="" disabled selected>Category</option>
-								<option value="1">Pastas</option>
-								<option value="2">Salads</option>
-								<option value="3">Meat</option>
-								<option value="3">Desserts</option>
-							</select>
+						<div class="col s12 l6 recipe_info__item">
+							<span class="bold recipe_info__subtitle subtitle">Ingredients: </span>
+							<ul class="recipe__ingredients">
+								<li class="regular">
+									<span class="bold">Ingredient1: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient2: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient3: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient4: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient5: </span>
+									<span>1L</span>
+								</li class="regular">
+								<li class="regular">
+									<span class="bold">Ingredient6: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient7: </span>
+									<span>1L</span>
+								</li>
+								<li class="regular">
+									<span class="bold">Ingredient8: </span>
+									<span>1L</span>
+								</li>
+							</ul>
 						</div>
-						<div class="input-field col s12">
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Chef</label>
+						<div class="col s12 l6 recipe_info__item">
+							<div class="bold recipe_info__subtitle subtitle">Preparation: </div>
+							<div class="regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, molestiae illo optio atque nihil, quas aut aliquam incidunt tempore eveniet. Cum sint iusto non, sunt nulla obcaecati soluta perferendis eius.
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, maxime sit alias ipsa ab incidunt dolor dolore magni quod provident reiciendis magnam. Asperiores perspiciatis quae eaque excepturi, dolorum consectetur magnam!</div>
 						</div>
-						<div class="input-field col s12">
-							<span class="subtitle">Ingredients</span>
+					</div>
+				</div>
+
+				<div class="recipe_comments">
+					<div class="recipe_comments__title subtitle">
+						<div class="bold">Comments</div>
+					</div>
+					<div class="recipe_comments__body">
+						<div class="row">
+							<div class="col s12">
+								<div class="comment">
+									<div class="comment__content regular">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos provident impedit earum vitae aliquid obcaecati. Nobis similique quas, beatae molestiae quis quia, labore libero laborum, atque asperiores quidem qui, sapiente.
+									</div>
+									<div class="comment__user italic">
+										<span>Por</span>
+										<span class="bold">Jean Carlos</span>
+									</div>
+								</div>
+								<div class="comment">
+									<div class="comment__content regular">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos provident impedit earum vitae aliquid obcaecati. Nobis similique quas, beatae molestiae quis quia, labore libero laborum, atque asperiores quidem qui, sapiente.
+									</div>
+									<div class="comment__user italic regular">
+										<span>Por</span>
+										<span class="bold">Jean Carlos</span>
+									</div>
+								</div>
+								<div class="comment">
+									<div class="comment__content regular">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos provident impedit earum vitae aliquid obcaecati. Nobis similique quas, beatae molestiae quis quia, labore libero laborum, atque asperiores quidem qui, sapiente.
+									</div>
+									<div class="comment__user italic">
+										<span>Por</span>
+										<span class="bold">Jean Carlos</span>
+									</div>
+								</div>
+							</div>
+							<div class="col s12">
+								<div class="comment_form">
+									<div class="subtitle bold">
+										Deja un comentario
+									</div>
+									<div class="input-field">
+										<textarea id="recipe_comment" class="materialize-textarea"></textarea>
+										<label for="recipe_comment">Type your comment here</label>
+									</div>
+									<div class="comment_form__button">
+										<a class="waves-effect waves-light btn">Send</a>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="input-field col s10">
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Ingredient</label>
-						</div>
-						<div class="input-field col s2">
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Ammount</label>
-						</div>
-						<div class="input-field col s12 no-margin-top">
-							<span class="ingredient__add">Add ingredient</span>
-						</div>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Preparation</label>
-						</div>
-						<div class="col s12 no-margin-top">
-							<a href="#!" class="btn waves-effect teal recipe__btn_create">Add Recipe</a>
-							<a href="#!" class="btn waves-effect red recipe__btn_create">Cancel</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m6 l4">
+				<div class="row">
+					<div class="col s12">
+						<div class="subtitle bold center-align">Tell us your opinion</div>
+					</div>
+					<div class="col s12">
+						<div class="rating center-align">
+							<div class="stars">
+								<p>
+									<input name="star" type="radio" id="star1" value="1" />
+									<label for="star1">
+										<span data-icon="&#xe9d7;" class="star">1</span>
+									</label>
+								</p>
+								<p>
+									<input name="star" type="radio" id="star2" value="2" />
+									<label for="star2">
+										<span data-icon="&#xe9d7;" class="star">2</span>
+									</label>
+								</p>
+								<p>
+									<input name="star" type="radio" id="star3" value="3" />
+									<label for="star3">
+										<span data-icon="&#xe9d7;" class="star">3</span>
+									</label>
+								</p>
+								<p>
+									<input name="star" type="radio" id="star4" value="4" />
+									<label for="star4">
+										<span data-icon="&#xe9d7;" class="star">4</span>
+									</label>
+								</p>
+								<p>
+									<input name="star" type="radio" id="star5" value="5" />
+									<label for="star5">
+										<span data-icon="&#xe9d7;" class="star">5</span>
+									</label>
+								</p>
+							</div>
+							<a href="#!" class="btn waves-effect teal">Votar</a>
 						</div>
 					</div>
 				</div>
