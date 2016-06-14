@@ -18,13 +18,14 @@ export default function (recipes=init, action) {
 	switch(action.type) {
     
     case "SEARCH_RECIPE":
-      return recipes.map(recipe => {
-        if (recipe.get("name").indexOf(action.payload) > -1) {
-          return recipe;
-        } else {
-          return [];
+      const newRecipes = [];
+      init.map(recipe => {
+        const name = recipe.get("name").toLowerCase();
+        if (name.indexOf(action.payload) > -1) {
+          newRecipes.push(recipe);
         }
       });
+      return List(newRecipes)
 
     default:
       return recipes
