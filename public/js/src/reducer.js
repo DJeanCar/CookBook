@@ -16,7 +16,7 @@ export default function (state=initialState, action) {
     case "SEARCH_RECIPE":
       /* SEACH RECIPES */
       const newRecipes = [];
-      recipes.map(recipe => {
+      fromJS(recipes).map(recipe => {
         const name = recipe.get("name").toLowerCase();
         if (name.indexOf(action.payload.toLowerCase()) > -1) {
           newRecipes.push(recipe);
@@ -29,14 +29,14 @@ export default function (state=initialState, action) {
 
     case "CHANGE_TO_RANKING":
       if (action.payload) {
-        const orderer_recipes = fromJS(_.orderBy(recipes.toJS(), ["stars"], ["desc"]));
+        const orderer_recipes = fromJS(_.orderBy(recipes, ["stars"], ["desc"]));
         return {
           recipes: orderer_recipes,
           ranking: action.payload
         };
       } else {
         return {
-          recipes: recipes,
+          recipes: fromJS(recipes),
           ranking: action.payload
         };
       }
@@ -45,7 +45,7 @@ export default function (state=initialState, action) {
       /* GET ALL RECIPES */
       return {
         ...state,
-        recipes: recipes
+        recipes: fromJS(recipes)
       };
 
     default:

@@ -3,6 +3,7 @@ import React from "react";
 import Recipe from "../components/Recipe";
 
 export default class RecipeList extends React.Component {
+	
 	render() {
 		const { recipes, ranking } = this.props;
 		return (
