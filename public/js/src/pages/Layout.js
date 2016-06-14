@@ -4,6 +4,11 @@ import RecipeList from "./RecipeList";
 
 export default class Layout extends React.Component {
 
+	constructor(props) {
+		super();
+		props.getAllRecipes();
+	}
+
 	onSubmit(e) {
 		const input = e.target;
 		setTimeout(() => {
@@ -12,19 +17,43 @@ export default class Layout extends React.Component {
 		}, 1);
 	}
 
+	changeToRanking() {
+		if (!this.props.ranking) {
+			this.props.changeToRanking(!this.props.ranking);
+		}
+	}
+
+	changeToRecently() {
+		if (this.props.ranking) {
+			this.props.changeToRanking(!this.props.ranking);
+		}
+	}
+
+	menuActive(ranking) {
+		if (!ranking) {
+			return <div class="recipes__filter">
+                <span class="active pointer" onClick={this.changeToRecently.bind(this)}>Recently</span>
+                <span>|</span>
+                <span class="pointer" onClick={this.changeToRanking.bind(this)}>Ranking</span> 
+            </div>
+		} else {
+			return <div class="recipes__filter">
+                <span class="pointer" onClick={this.changeToRecently.bind(this)}>Recently</span>
+                <span>|</span>
+                <span class="pointer active" onClick={this.changeToRanking.bind(this)}>Ranking</span> 
+            </div>
+		}
+	}
+
 	render() {
-		const { recipes, searchRecipe } = this.props;
+		const { recipes, searchRecipe, ranking } = this.props;
 		return (
 			<section class="recipes">
 				<div class="container">
 						<div class="row valign-wrapper">
 	            <div class="col s6 m5 l6 valign">
 	                <span class="subtitle bold">Recipes</span>
-	                <div class="recipes__filter">
-	                    <span class="active pointer">Recently</span>
-	                    <span>|</span>
-	                    <span class="pointer">Ranking</span> 
-	                </div>
+	                {this.menuActive(ranking)}
 	            </div>
 	            <div class="col s4 m5 l4 valign input-field">
 	                    <i class="material-icons prefix"></i>
@@ -39,7 +68,7 @@ export default class Layout extends React.Component {
 	            </div>
 	        </div>
 				</div>
-				<RecipeList recipes={this.props.recipes}/>
+				<RecipeList recipes={recipes} ranking={ranking} />
 			</section>
 		)
 	}

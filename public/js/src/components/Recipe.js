@@ -2,10 +2,18 @@ import React from "react";
 
 
 export default class Recipe extends React.Component {
+
+  isRanking(ranking, orden) {
+    if (ranking) {
+      return <div class="position center-align">{orden}</div>;
+    }
+  }
+
 	render() {
-		const recipe = this.props.recipe;
+    const { recipe, ranking, orden } = this.props;
 		return(
 			<div class="recipe card">
+        {this.isRanking(ranking, orden)}
         <div class="row valign-wrapper">
             <div class="col s6">
                 <span class="recipe__name">{recipe.get("name")}</span>
@@ -23,7 +31,7 @@ export default class Recipe extends React.Component {
                 <span class="recipe__publish_date">Publicado el {recipe.get("date")}</span>
             </div>
         </div>
-    	</div>
+      </div>
 		)
 	}
 }

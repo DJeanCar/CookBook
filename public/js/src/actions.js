@@ -12,3 +12,16 @@ export function searchRecipe(name) {
 		payload: name
 	}
 }
+
+export function changeToRanking(ranking) {
+	return {
+		type: "CHANGE_TO_RANKING",
+		payload: ranking
+	}
+}
+
+export function getAllRecipes() {
+  return {
+    type: "GET_ALL_RECIPES"
+  }
+}
