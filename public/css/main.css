@@ -9,6 +9,11 @@ input, textarea {
 label {
   font-size: 1em !important; }
 
+a {
+  font-style: none;
+  color: #546672;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot");
@@ -27,6 +32,11 @@ label {
 
 body {
   font-family: 'PT Serif', serif; }
+
+
+.back-link {
+  text-decoration: underline;
+}
 
 .no-margin-bottom {
   margin-bottom: 0; }

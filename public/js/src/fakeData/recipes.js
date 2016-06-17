@@ -1,9 +1,117 @@
-export const recipes = [
-  { id: 0, stars: 5, name: "Ceviche", date: "15/12/2016", author: "Jean Mariños", category: "Pescado"},
-  { id: 1, stars: 4, name: "Arroz con Pollo", date: "15/12/2016", author: "Miguel Villanueva", category: "Criollo"},
-  { id: 2, stars: 3, name: "Home Made Bolognese Pasta", date: "01/05/2016", author: "Julio Grados", category: "Pastas"},
-  { id: 3, stars: 4, name: "Arroz con Mariscos", date: "10/07/2016", author: "Edwin Gonzales", category: "pescado"},
-  { id: 4, stars: 3.4, name: "Ceviche", date: "15/12/2016", author: "Jean Mariños", category: "pescado"},
-  { id: 5, stars: 4, name: "Arroz con Pollo", date: "15/12/2016", author: "Miguel Villanueva", category: "Criollo"},
-  { id: 6, stars: 3, name: "Home Made Bolognese Pasta", date: "31/07/2016", author: "Julio Grados", category: "Pastas"},
-]
+export const recipes = 
+[
+  {
+    id:"aji-de-gallina",
+    name:"Aji de Gallina",
+    stars: 4,
+    category:"meat",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  },
+  {
+    id: "lomo-saltado",
+    name:"Lomo saltado",
+    stars: 3,
+    category:"meat",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  },
+  {
+    id: "gelatina-de-fresa",
+    name:"Gelatina de fresa",
+    stars: 4.5,
+    category:"desserts",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  },
+  {
+    id: "sopa-de-casa",
+    name:"Sopa de casa",
+    stars: 5,
+    category:"meat",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  },
+  {
+    id:"aguadito",
+    name:"Aguadito",
+    stars: 3.5,
+    category:"salads",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  },
+  {
+    id:"tallarines-rojos",
+    name:"Tallarines rojos",
+    stars: 2,
+    category:"pastas",
+    date: "14/12/2016",
+    chef: "Jean Mariños",
+    preparation:"This is a preparation",
+    ingredients: [
+      {
+        name:"aji",
+        amount:"300gr"
+      },
+      {
+        name:"gallina",
+        amount:"1kg"
+      }
+    ]
+  }
+];

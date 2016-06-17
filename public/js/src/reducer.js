@@ -6,12 +6,20 @@ import { recipes } from "./fakeData/recipes";
 
 const initialState = {
   recipes: List([]),
-  ranking: false
+  currentRecipe: Map({}),
+  ranking: false,
+  ingredients: 0
 };
 
 export default function (state=initialState, action) {
 
 	switch(action.type) {
+
+    case "ADD_RECIPE":
+      return {
+        ...state,
+        recipes: state.recipes.push(fromJS(action.payload))
+      }
     
     case "SEARCH_RECIPE":
       /* SEACH RECIPES */
@@ -29,7 +37,7 @@ export default function (state=initialState, action) {
 
     case "CHANGE_TO_RANKING":
       if (action.payload) {
-        const orderer_recipes = fromJS(_.orderBy(recipes, ["stars"], ["desc"]));
+        const orderer_recipes = fromJS(_.orderBy(state.recipes.toJS(), ["stars"], ["desc"]));
         return {
           recipes: orderer_recipes,
           ranking: action.payload
@@ -43,13 +51,46 @@ export default function (state=initialState, action) {
 
     case "GET_ALL_RECIPES":
       /* GET ALL RECIPES */
+      const currentRecipes = state.recipes.size === 0 ? state.recipes.concat(fromJS(recipes)) : state.recipes;
       return {
         ...state,
-        recipes: fromJS(recipes)
+        recipes: currentRecipes
       };
+
+    case "GET_RECIPE":
+      /* GET RECIPE OBJECT */
+      let currentRecipe;
+      state.recipes.map(recipe => {
+        if (recipe.get("id") === action.payload) {
+          currentRecipe = recipe;
+        }
+      });
+      return {
+        ...state,
+        currentRecipe: currentRecipe
+      };
+
+    case "ADD_INGREDIENT":
+      if (state.ingredients < 10) {
+        return {
+          ...state,
+          ingredients: state.ingredients + 1
+        };
+      } else {
+        return {
+          ...state
+        };
+      }
+
+    case "SET_INGREDIENT_TO_ONE":
+      return {
+        ...state,
+        ingredients: 1
+      }
 
     default:
       return state;
+
   }
 
 }

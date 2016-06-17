@@ -25,7 +25,7 @@ export default class Recipe extends React.Component {
         </div>
         <div class="row no-margin-bottom recipe__data">
             <div class="col s6">
-                <span>Por {recipe.get("author")}</span>
+                <span>Por {recipe.get("chef")}</span>
             </div>
             <div class="col s6 right-align">
                 <span class="recipe__publish_date">Publicado el {recipe.get("date")}</span>

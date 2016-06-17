@@ -7,21 +7,24 @@ import { Provider } from "react-redux";
 import { List, Map } from "immutable";
 
 import Layout from "./pages/Layout";
+import RecipeList from "./pages/RecipeList";
+import RecipeDetail from "./pages/RecipeDetail";
+import RecipeCreate from "./pages/RecipeCreate";
+
 import reducer from "./reducer";
-import { LayoutContainer } from "./containers"
+import { LayoutContainer, RecipeListContainer, RecipeDetailContainer, RecipeCreateContainer } from "./containers";
 
 const store = createStore(reducer);
 
 ReactDOM.render(
-  /*<Router history={hashHistory}>
-    <Route path="/" component={RecipeList}>
-      <IndexRoute component={RecipeList}></IndexRoute>
-    </Route>
-  </Router>*/
   <Provider store={store}>
-    <LayoutContainer />
+    <Router history={hashHistory}>
+      <Route path="/" component={LayoutContainer}>
+        <IndexRoute component={RecipeListContainer}></IndexRoute>
+        <Route path="recipes/:slug" component={RecipeDetailContainer}></Route>
+        <Route path="newRecipe" component={RecipeCreateContainer}></Route>
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById("app")
-)
-
-
+);

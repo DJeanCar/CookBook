@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "supervisor server.js"
+    "server": "supervisor server.js",
+    "webpack": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
@@ -18,14 +19,20 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "express": "^4.13.4",
-    "history": "^1.17.0",
+    "history": "^1.13.1",
     "immutable": "^3.8.1",
+    "jquery": "^3.0.0",
     "lodash": "^4.13.1",
+    "materialize-css": "^0.97.6",
+    "mobx": "^2.3.1",
+    "mobx-react": "^3.3.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
     "redux": "^3.5.2",
+    "redux-router": "^1.0.0-beta8",
+    "slug": "^0.9.1",
     "swig": "^1.4.2",
     "webpack": "^1.12.9"
   }
