@@ -44,3 +44,10 @@ export function addIngredient() {
     type: "ADD_INGREDIENT"
   }
 }
+
+export function deleteRecipe(slug) {
+  return {
+    type: "DELETE_RECIPE",
+    payload: slug
+  }
+}

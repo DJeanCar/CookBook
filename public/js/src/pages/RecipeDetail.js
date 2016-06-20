@@ -7,6 +7,11 @@ export default class RecipeDetail extends React.Component {
     this.props.getRecipe(this.props.params.slug);
   }
 
+  removeRecipe(slug) {
+    this.props.deleteRecipe(slug);
+    this.props.history.pushState(null, '/');
+  }
+
   populateIngredients(recipe) {
     if (typeof recipe.get("ingredients") !== "undefined") {
       return <ul class="recipe__ingredients">
@@ -47,7 +52,7 @@ export default class RecipeDetail extends React.Component {
                   <div class="col s12"> 
                     <div class="recipe__options">
                       <a href="#!" class="btn waves-effect teal">Update</a>
-                      <a href="#!" class="btn waves-effect red">Delete</a>
+                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.get("id"))}>Delete</button>
                     </div>
                   </div>
                 </div>

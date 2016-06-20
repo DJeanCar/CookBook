@@ -86,7 +86,19 @@ export default function (state=initialState, action) {
       return {
         ...state,
         ingredients: 1
-      }
+      };
+
+    case "DELETE_RECIPE":
+      let index;
+      state.recipes.map((recipe, i) => {
+        if (recipe.get("id") === action.payload) {
+            index = i;
+          }
+      });
+      return {
+        ...state,
+        recipes: state.recipes.splice(index,1)
+      };
 
     default:
       return state;

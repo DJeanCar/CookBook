@@ -5,7 +5,8 @@ import RecipeDetail from "./pages/RecipeDetail";
 import RecipeList from "./pages/RecipeList";
 import RecipeCreate from "./pages/RecipeCreate";
 
-import { searchRecipe, changeToRanking, getAllRecipes, getRecipe, addRecipe, addIngredient, setIngredientToOne } from "./actions";
+import { searchRecipe, changeToRanking, getAllRecipes, 
+        getRecipe, addRecipe, addIngredient, setIngredientToOne, deleteRecipe } from "./actions";
 
 export const LayoutContainer = connect(
 	function mapStateToProps(state) {
@@ -34,7 +35,8 @@ export const RecipeDetailContainer = connect(
 
   function mapDispatchToProps(dispatch) {
     return {
-      getRecipe: slug => dispatch(getRecipe(slug))
+      getRecipe: slug => dispatch(getRecipe(slug)),
+      deleteRecipe: slug => dispatch(deleteRecipe(slug))
     }
   }
 )(RecipeDetail);
