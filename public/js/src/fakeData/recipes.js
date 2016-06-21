@@ -1,7 +1,8 @@
 export const recipes = 
 [
   {
-    id:"aji-de-gallina",
+    id: 1,
+    slug:"aji-de-gallina",
     name:"Aji de Gallina",
     stars: 4,
     category:"meat",
@@ -20,7 +21,8 @@ export const recipes =
     ]
   },
   {
-    id: "lomo-saltado",
+    id: 2,
+    slug: "lomo-saltado",
     name:"Lomo saltado",
     stars: 3,
     category:"meat",
@@ -39,7 +41,8 @@ export const recipes =
     ]
   },
   {
-    id: "gelatina-de-fresa",
+    id: 3,
+    slug: "gelatina-de-fresa",
     name:"Gelatina de fresa",
     stars: 4.5,
     category:"desserts",
@@ -58,7 +61,8 @@ export const recipes =
     ]
   },
   {
-    id: "sopa-de-casa",
+    id: 4,
+    slug: "sopa-de-casa",
     name:"Sopa de casa",
     stars: 5,
     category:"meat",
@@ -77,7 +81,8 @@ export const recipes =
     ]
   },
   {
-    id:"aguadito",
+    id: 5,
+    slug:"aguadito",
     name:"Aguadito",
     stars: 3.5,
     category:"salads",
@@ -96,7 +101,8 @@ export const recipes =
     ]
   },
   {
-    id:"tallarines-rojos",
+    id: 6,
+    slug:"tallarines-rojos",
     name:"Tallarines rojos",
     stars: 2,
     category:"pastas",

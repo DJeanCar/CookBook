@@ -52,7 +52,7 @@ export default class RecipeDetail extends React.Component {
                   <div class="col s12"> 
                     <div class="recipe__options">
                       <a href="#!" class="btn waves-effect teal">Update</a>
-                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.get("id"))}>Delete</button>
+                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.get("slug"))}>Delete</button>
                     </div>
                   </div>
                 </div>

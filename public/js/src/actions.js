@@ -1,14 +1,18 @@
+const GET_ALL_RECIPES = "GET_ALL_RECIPES";
+const ADD_RECIPE = "ADD_RECIPE"
+const SET_INGREDIENT_TO_ONE = "SET_INGREDIENT_TO_ONE"
+
 
 export function addRecipe(recipe) {
 	return {
-    type: "ADD_RECIPE",
+    type: ADD_RECIPE,
     payload: recipe
   }
 }
 
 export function setIngredientToOne() {
   return {
-    type: "SET_INGREDIENT_TO_ONE"
+    type: SET_INGREDIENT_TO_ONE
   }
 }
 
@@ -28,7 +32,7 @@ export function changeToRanking(ranking) {
 
 export function getAllRecipes() {
   return {
-    type: "GET_ALL_RECIPES"
+    type: GET_ALL_RECIPES
   }
 }
 

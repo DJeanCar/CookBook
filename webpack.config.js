@@ -6,7 +6,7 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, "public", "js"),
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./src/client.js",
+  entry: ["babel-polyfill", "./src/client.js"],
   module: {
     loaders: [
       {
@@ -15,7 +15,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
+          plugins: ['react-html-attrs',"syntax-async-functions","transform-regenerator", 'transform-class-properties', 'transform-decorators-legacy'],
         }
       }
     ]

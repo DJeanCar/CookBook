@@ -69,7 +69,7 @@ export default class RecipeList extends React.Component {
 				</div>
 				<div class="container">
 					{recipes.map((recipe, index) => (
-						<Link to={`/recipes/${recipe.get("id")}`} key={recipe.get("id")}>
+						<Link to={`/recipes/${recipe.get("slug")}`} key={recipe.get("id")}>
 							<div class="row">
 			            <div class="col s12">
 			            		<Recipe recipe={recipe} ranking={ranking} orden={index+1}/>

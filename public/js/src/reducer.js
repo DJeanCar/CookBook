@@ -1,6 +1,12 @@
+
 import { List, Map, fromJS } from "immutable";
 import _ from "lodash";
 import { recipes } from "./fakeData/recipes";
+import { postRequest, getAllRecipesFromServer } from "./util"
+
+import { RECEIVE_RECIPES } from './actions'
+
+import request from "superagent";
 
 // const init = List([]);
 
@@ -16,11 +22,13 @@ export default function (state=initialState, action) {
 	switch(action.type) {
 
     case "ADD_RECIPE":
+      postRequest('/recipes/add', action.payload);
       return {
         ...state,
         recipes: state.recipes.push(fromJS(action.payload))
-      }
-    
+      };
+
+      
     case "SEARCH_RECIPE":
       /* SEACH RECIPES */
       const newRecipes = [];
@@ -51,6 +59,8 @@ export default function (state=initialState, action) {
 
     case "GET_ALL_RECIPES":
       /* GET ALL RECIPES */
+      // let res = await request.get("/recipes");
+      // console.log(res.body.recipes);
       const currentRecipes = state.recipes.size === 0 ? state.recipes.concat(fromJS(recipes)) : state.recipes;
       return {
         ...state,
@@ -61,7 +71,7 @@ export default function (state=initialState, action) {
       /* GET RECIPE OBJECT */
       let currentRecipe;
       state.recipes.map(recipe => {
-        if (recipe.get("id") === action.payload) {
+        if (recipe.get("slug") === action.payload) {
           currentRecipe = recipe;
         }
       });
@@ -91,7 +101,7 @@ export default function (state=initialState, action) {
     case "DELETE_RECIPE":
       let index;
       state.recipes.map((recipe, i) => {
-        if (recipe.get("id") === action.payload) {
+        if (recipe.get("slug") === action.payload) {
             index = i;
           }
       });

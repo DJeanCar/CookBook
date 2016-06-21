@@ -4,10 +4,11 @@ export default class Recipe {
 
   constructor(category, name, chef, preparation, ingredients) {
     const now = new Date();
-
-    this.id = slug(name);
+    this.id = 10;
     this.category = category;
     this.name = name;
+    this.slug = slug(name);
+    console.log(this.slug);
     this.chef = chef;
     this.preparation = preparation;
     this.date = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()}`;
@@ -19,6 +20,7 @@ export default class Recipe {
     return {
       id: this.id,
       name: this.name,
+      slug: this.slug,
       category : this.category,
       chef: this.chef,
       preparation: this.preparation,
