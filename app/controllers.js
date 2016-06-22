@@ -63,7 +63,7 @@ router.route('/')
       knex
         .from("recipes")
         .then( recipes => {
-          console.log(recipes);
+          // console.log(recipes);
         });
     	res.render('index');
     });

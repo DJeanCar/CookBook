@@ -4,11 +4,10 @@ export default class Recipe {
 
   constructor(category, name, chef, preparation, ingredients) {
     const now = new Date();
-    this.id = 10;
+    this.id = Math.floor((Math.random() * 100) + 1);;
     this.category = category;
     this.name = name;
     this.slug = slug(name);
-    console.log(this.slug);
     this.chef = chef;
     this.preparation = preparation;
     this.date = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()}`;

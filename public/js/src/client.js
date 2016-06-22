@@ -11,15 +11,18 @@ import RecipeList from "./pages/RecipeList";
 import RecipeDetail from "./pages/RecipeDetail";
 import RecipeCreate from "./pages/RecipeCreate";
 
-import reducer from "./reducer";
-import { LayoutContainer, RecipeListContainer, RecipeDetailContainer, RecipeCreateContainer } from "./containers";
+import reducer from "./reducers";
+
+import RecipeListContainer from "./containers/RecipeListContainer";
+import RecipeDetailContainer from "./containers/RecipeDetailContainer";
+import RecipeCreateContainer from "./containers/RecipeCreateContainer";
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={LayoutContainer}>
+      <Route path="/" component={Layout}>
         <IndexRoute component={RecipeListContainer}></IndexRoute>
         <Route path="recipes/:slug" component={RecipeDetailContainer}></Route>
         <Route path="newRecipe" component={RecipeCreateContainer}></Route>

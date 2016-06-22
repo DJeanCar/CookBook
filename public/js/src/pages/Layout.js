@@ -8,7 +8,6 @@ import Footer from "../components/layout/Footer";
 export default class Layout extends React.Component {	
 
 	render() {
-		const { recipes, searchRecipe, ranking } = this.props;
 		return (
 			<div>
 				<Header />

@@ -8,9 +8,8 @@ import Recipe from "../models/Recipe";
 
 export default class RecipeCreate extends React.Component {
 
-  constructor(props) {
-    super(props);
-    props.setIngredientToOne();
+  componentWillMount() {
+    this.props.setIngredientToOne();
   }
 
   setIngredientsInput() {

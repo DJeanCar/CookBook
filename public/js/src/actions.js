@@ -1,7 +1,11 @@
-const GET_ALL_RECIPES = "GET_ALL_RECIPES";
-const ADD_RECIPE = "ADD_RECIPE"
-const SET_INGREDIENT_TO_ONE = "SET_INGREDIENT_TO_ONE"
-
+export const GET_ALL_RECIPES = "GET_ALL_RECIPES";
+export const ADD_RECIPE = "ADD_RECIPE";
+export const SET_INGREDIENT_TO_ONE = "SET_INGREDIENT_TO_ONE";
+export const SEARCH_RECIPE = "SEARCH_RECIPE";
+export const CHANGE_TO_RANKING = "CHANGE_TO_RANKING";
+export const GET_RECIPE = "GET_RECIPE";
+export const ADD_INGREDIENT = "ADD_INGREDIENT";
+export const DELETE_RECIPE = "DELETE_RECIPE";
 
 export function addRecipe(recipe) {
 	return {
@@ -18,14 +22,14 @@ export function setIngredientToOne() {
 
 export function searchRecipe(name) {
 	return {
-		type: "SEARCH_RECIPE",
+		type: SEARCH_RECIPE,
 		payload: name
 	}
 }
 
 export function changeToRanking(ranking) {
 	return {
-		type: "CHANGE_TO_RANKING",
+		type: CHANGE_TO_RANKING,
 		payload: ranking
 	}
 }
@@ -38,20 +42,20 @@ export function getAllRecipes() {
 
 export function getRecipe(slug) {
   return {
-    type: "GET_RECIPE",
+    type: GET_RECIPE,
     payload: slug
   }
 }
 
 export function addIngredient() {
   return {
-    type: "ADD_INGREDIENT"
+    type: ADD_INGREDIENT
   }
 }
 
 export function deleteRecipe(slug) {
   return {
-    type: "DELETE_RECIPE",
+    type: DELETE_RECIPE,
     payload: slug
   }
 }

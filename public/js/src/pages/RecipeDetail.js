@@ -3,10 +3,6 @@ import { Link } from "react-router";
 
 export default class RecipeDetail extends React.Component {
 
-  componentWillMount() {
-    this.props.getRecipe(this.props.params.slug);
-  }
-
   removeRecipe(slug) {
     this.props.deleteRecipe(slug);
     this.props.history.pushState(null, '/');
