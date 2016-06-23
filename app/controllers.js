@@ -1,90 +1,54 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-const knex = require("../config/knex");
-
-function gerOrCreateChef(name) {
-  return knex
-    .select("id")
-    .from("chefs")
-    .where(knex.raw('LOWER("name") = ?', name.toLowerCase()))
-    .then(chef => {
-      if (chef.length === 0) {
-        // create Chef
-        return knex("chefs")
-          .insert({
-            name: name
-          })
-          .returning('id')
-          .then(id => {
-            return id[0];
-          })
-      } else {
-        return chef[0].id;
-      }
-    });
-}
-
-function getCategory(category) {
-  return knex
-    .select("id")
-    .from("categories")
-    .where({name: category})
-    .then(category => {
-      return category[0].id;
-    });
-}
-
-function addRecipe(data) {
-  return Promise.all([
-    gerOrCreateChef(data.chef),
-    getCategory(data.category)
-  ])
-  .then(results => {
-    const chef_id = results[0];
-    const category_id = results[1];
-    return knex("recipes")
-      .insert({
-        name: data.name,
-        slug: data.slug,
-        preparation: data.preparation,
-        category_id: category_id,
-        chef_id: chef_id
-      })
-      .then(err => {
-        return true;
-      });
-  });
-}
+const Recipe = require("./models").Recipe;
 
 router.route('/')
 
     .get( (req, res) => {
-      knex
-        .from("recipes")
-        .then( recipes => {
-          // console.log(recipes);
-        });
     	res.render('index');
     });
 
-router.route('/recipes/add')
+router.route('/api/recipes/add')
 
   .post( (req, res) => {
-    addRecipe(req.body)
-    .then(isSave => {
-      console.log(isSave);
-      return res.json({ isSave: isSave });
-    });
+    Recipe
+      .forge({
+        name: req.body.name,
+        slug: req.body.slug,
+        chef: req.body.chef,
+        category: req.body.category,
+        preparation: req.body.preparation,
+        date: req.body.date
+      })
+      .save()
+      .then(recipe => {
+        return res.json({isSave: true})
+      });
   });
 
-router.route('/recipes')
+router.route('/api/recipes')
 
   .get( (req, res) => {
-    knex
-      .from("recipes")
-      .then( recipes => {
-        return res.json({ recipes: recipes })
+    new Recipe()
+      .fetchAll()
+      .then(data => {
+        return res.json({ recipes: data })
+      })
+  });
+
+router.route('/api/recipes/delete/:recipe_slug')
+
+  .delete((req, res) => {
+    Recipe
+      .forge({slug: req.params.recipe_slug})
+      .fetch()
+      .then(recipe => {
+        recipe
+          .destroy()
+          .then(() => {
+            res.json({isDelete: true})
+          });
       });
   });
 

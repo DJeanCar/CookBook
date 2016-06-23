@@ -1,23 +1,29 @@
 import React from "react";
+import { createStore, applyMiddleware } from "redux";
+
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory} from "react-router";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-
-import { List, Map } from "immutable";
+import thunkMiddleware from "redux-thunk";
+import createLogger from "redux-logger";
 
 import Layout from "./pages/Layout";
-import RecipeList from "./pages/RecipeList";
-import RecipeDetail from "./pages/RecipeDetail";
-import RecipeCreate from "./pages/RecipeCreate";
-
 import reducer from "./reducers";
 
+/* CONTAINERS */
 import RecipeListContainer from "./containers/RecipeListContainer";
 import RecipeDetailContainer from "./containers/RecipeDetailContainer";
 import RecipeCreateContainer from "./containers/RecipeCreateContainer";
 
-const store = createStore(reducer);
+const loggerMiddleware = createLogger();
+
+const store = createStore(
+  reducer,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
+);
 
 ReactDOM.render(
   <Provider store={store}>

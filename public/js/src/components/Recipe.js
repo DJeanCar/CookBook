@@ -10,7 +10,7 @@ export default class Recipe extends React.Component {
   }
 
 	render() {
-    const { recipe, ranking, orden } = this.props;
+        const { recipe, ranking, orden } = this.props;
 		return(
 			<div class="recipe card">
         {this.isRanking(ranking, orden)}

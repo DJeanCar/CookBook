@@ -1,35 +1,61 @@
-import { List, fromJS } from "immutable";
+import { List, fromJS, Map } from "immutable";
 import { recipesFake } from "../fakeData/recipes";
+import { FETCH_RECIPES_REQUEST, FETCH_RECIPES_SUCCESS, ADD_RECIPES_SUCCESS, DELETE_RECIPES_SUCCESS, SEARCH_RECIPE } from "../actions";
 
+const initialState = Map({
+  isFetching: false,
+  data: List([])
+});
 
-const recipes = (state=List([]), action) => {
+let recipesFromServer;
+
+const recipes = (state=initialState, action) => {
 
   switch (action.type) {
 
-    case "ADD_RECIPE":
-      return state.push(fromJS(action.payload))
+    case FETCH_RECIPES_REQUEST:
+      return Map({
+        ...state,
+        isFetching: true
+      });
 
-    case "GET_ALL_RECIPES":
-      return state.size === 0 ? state.concat(fromJS(recipesFake)) : state;
+    case FETCH_RECIPES_SUCCESS:
+      recipesFromServer = action.recipes;
+      return Map({
+        isFetching: false,
+        data: fromJS(action.recipes)
+      });
 
-    case "SEARCH_RECIPE":
+    case ADD_RECIPES_SUCCESS:
+      return Map({
+        ...state,
+        data: state.get("data").push(fromJS(action.payload))
+      });
+
+    case DELETE_RECIPES_SUCCESS:
+      let index;
+      state.get("data").map((recipe, i) => {
+        if (recipe.get("slug") === action.slug) {
+            index = i;
+          }
+      });
+      return Map({
+        ...state,
+        data: state.get("data").splice(index,1)
+      });
+
+    case SEARCH_RECIPE:
       const newRecipes = [];
-      fromJS(recipesFake).map(recipe => {
-        const name = recipe.get("name").toLowerCase();
+      recipesFromServer.map(recipe => {
+        const name = Map(recipe).get("name").toLowerCase();
         if (name.indexOf(action.payload.toLowerCase()) > -1) {
           newRecipes.push(recipe);
         }
       });
-      return newRecipes;
-
-    case "DELETE_RECIPE":
-      let index;
-      state.map((recipe, i) => {
-        if (recipe.get("slug") === action.payload) {
-            index = i;
-          }
+      return Map({
+        ...state,
+        data: fromJS(newRecipes)
       });
-      return state.splice(index,1);
 
     default:
       return state;

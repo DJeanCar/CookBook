@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const recipeDetail = (recipes, slug) => {
   let currentRecipe;
-  recipes.map(recipe => {
+  recipes.get("data").map(recipe => {
     if (recipe.get("slug") === slug) {
       currentRecipe = recipe;
     }

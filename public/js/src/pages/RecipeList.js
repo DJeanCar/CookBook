@@ -5,7 +5,7 @@ import Recipe from "../components/Recipe";
 export default class RecipeList extends React.Component {
 
 	componentWillMount() {
-		this.props.getAllRecipes();
+		this.props.fetchRecipes();
 	}
 
 	onSubmit(e) {
