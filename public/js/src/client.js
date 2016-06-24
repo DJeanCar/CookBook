@@ -3,6 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory} from "react-router";
 
+import { recipeStore } from "./stores";
+
 import Layout from "./pages/Layout";
 import RecipeList from "./pages/RecipeList";
 import RecipeDetail from "./pages/RecipeDetail";

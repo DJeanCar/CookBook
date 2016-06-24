@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router";
 import Recipe from "../components/Recipe";
+import { recipeStore } from "../stores";
+import { observer } from "mobx-react";
 
+@observer
 export default class RecipeList extends React.Component {
 
 	componentWillMount() {
+		console.log(this.props);
 		// this.props.fetchRecipes();
 	}
 
@@ -44,8 +48,22 @@ export default class RecipeList extends React.Component {
 		}
 	}
 
+	populateRecipes(recipes) {
+		if (typeof recipes !== "undefined") {
+			return <div class="container">
+				{ingredients.map((element, i) => {
+	        return (
+	          <h1>aa</h1>
+	        );
+	      })}
+	    </div>
+			console.log("es undefined");
+		}
+	}
+
 	render() {
-		// const { recipes, ranking } = this.props;
+		const recipes = recipeStore.recipes;
+		console.log(this.props.store);
 		return (
 			<div>
 				<div class="container">
@@ -67,22 +85,9 @@ export default class RecipeList extends React.Component {
 	          </div>
 	      	</div>
 				</div>
-				<div class="container">
-						<Link to={`/recipes/ceviche`} key="1">
-							<div class="row">
-			            <div class="col s12">
-			            		<Recipe />
-			            </div>
-			        </div>
-		        </Link>
-		        <Link to={`/recipes/pollo`} key="2">
-							<div class="row">
-			            <div class="col s12">
-			            		<Recipe />
-			            </div>
-			        </div>
-		        </Link>
-			  </div>
+						
+				{this.populateRecipes(recipes)}
+
 			</div>
 		)
 	}
