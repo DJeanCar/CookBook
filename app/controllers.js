@@ -19,11 +19,13 @@ router.route('/api/recipes/add')
         chef: req.body.chef,
         category: req.body.category,
         preparation: req.body.preparation,
-        date: req.body.date
+        date: req.body.date,
+        stars: req.body.stars,
+        ingredients: {"data": req.body.ingredients}
       })
       .save()
       .then(recipe => {
-        return res.json({isSave: true})
+        return res.json({ isSave: true })
       });
   });
 

@@ -5,9 +5,16 @@ import { connect } from "react-redux";
 
 import { searchRecipe, changeToRanking, fetchRecipes } from "../actions";
 
+const getRecipes = (recipes, ranking) => {
+  if (ranking) {
+    return fromJS(_.orderBy(recipes.toJS(), ["stars"], ["desc"]));
+  }    
+  return recipes;
+}
+
 const mapStateToProps = (state) => {
   return {
-    recipes: state.recipes.get("data"),
+    recipes: getRecipes(state.recipes.get("data"), state.ranking),
     ranking: state.ranking
   }
 }
