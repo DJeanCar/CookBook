@@ -5,7 +5,7 @@ import Recipe from "../components/Recipe";
 export default class RecipeList extends React.Component {
 
 	componentWillMount() {
-		this.props.fetchRecipes();
+		// this.props.fetchRecipes();
 	}
 
 	onSubmit(e) {
@@ -45,14 +45,14 @@ export default class RecipeList extends React.Component {
 	}
 
 	render() {
-		const { recipes, ranking } = this.props;
+		// const { recipes, ranking } = this.props;
 		return (
 			<div>
 				<div class="container">
 					<div class="row valign-wrapper">
 	          <div class="col s6 m5 l6 valign">
 	              <span class="subtitle bold">Recipes</span>
-	              {this.menuActive(ranking)}
+	              {this.menuActive(false)}
 	          </div>
 	          <div class="col s4 m5 l4 valign input-field">
 	                  <i class="material-icons prefix"></i>
@@ -68,15 +68,20 @@ export default class RecipeList extends React.Component {
 	      	</div>
 				</div>
 				<div class="container">
-					{recipes.map((recipe, index) => (
-						<Link to={`/recipes/${recipe.get("slug")}`} key={recipe.get("id")}>
+						<Link to={`/recipes/ceviche`} key="1">
 							<div class="row">
 			            <div class="col s12">
-			            		<Recipe recipe={recipe} ranking={ranking} orden={index+1}/>
+			            		<Recipe />
 			            </div>
 			        </div>
 		        </Link>
-		      ))}
+		        <Link to={`/recipes/pollo`} key="2">
+							<div class="row">
+			            <div class="col s12">
+			            		<Recipe />
+			            </div>
+			        </div>
+		        </Link>
 			  </div>
 			</div>
 		)
