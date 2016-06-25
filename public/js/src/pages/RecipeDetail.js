@@ -9,6 +9,10 @@ export default class RecipeDetail extends React.Component {
   }
 
   populateIngredients(recipe) {
+    recipe.get("ingredients").map(ingredient => {
+      console.log(ingredient[1]);
+      ingredient.map(aa => console.log(aa.get("name")));
+    });
     if (recipe.get("ingredients") !== null) {
       return <ul class="recipe__ingredients">
         {recipe.get("ingredients").map( (ingredient, index) => {

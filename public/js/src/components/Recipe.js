@@ -20,7 +20,7 @@ export default class Recipe extends React.Component {
                 <span data-icon="&#xe9d7;" class="star star-list">{recipe.get("stars")}</span>
             </div>
             <div class="col s6 right-align valign">
-                <span class="recipe__category chip">{recipe.get("category")}</span>
+                <span class="recipe__category regular chip">{recipe.get("category")}</span>
             </div>
         </div>
         <div class="row no-margin-bottom recipe__data">
@@ -28,7 +28,7 @@ export default class Recipe extends React.Component {
                 <span>Por {recipe.get("chef")}</span>
             </div>
             <div class="col s6 right-align">
-                <span class="recipe__publish_date">Publicado el {recipe.get("date")}</span>
+                <span class="recipe__publish_date regular">Publicado el {recipe.get("date")}</span>
             </div>
         </div>
       </div>
