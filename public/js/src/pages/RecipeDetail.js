@@ -81,6 +81,7 @@ export default class RecipeDetail extends React.Component {
                 </div>
               </div>
 
+
               <div class="recipe_comments">
                 <div class="recipe_comments__title subtitle">
                   <div class="bold">Comments</div>

@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router";
 import Recipe from "../components/Recipe";
+import { recipeStore } from "../stores";
+import { observer } from "mobx-react";
 
+@observer
 export default class RecipeList extends React.Component {
 
 	componentWillMount() {
-		this.props.fetchRecipes();
+		// this.props.fetchRecipes();
 	}
 
 	onSubmit(e) {
@@ -45,14 +48,14 @@ export default class RecipeList extends React.Component {
 	}
 
 	render() {
-		const { recipes, ranking } = this.props;
+		const recipes = recipeStore.recipes;
 		return (
 			<div>
 				<div class="container">
 					<div class="row valign-wrapper">
 	          <div class="col s6 m5 l6 valign">
 	              <span class="subtitle bold">Recipes</span>
-	              {this.menuActive(ranking)}
+	              {this.menuActive(false)}
 	          </div>
 	          <div class="col s4 m5 l4 valign input-field">
 	                  <i class="material-icons prefix"></i>
@@ -67,17 +70,19 @@ export default class RecipeList extends React.Component {
 	          </div>
 	      	</div>
 				</div>
+				
 				<div class="container">
 					{recipes.map((recipe, index) => (
-						<Link to={`/recipes/${recipe.get("slug")}`} key={recipe.get("id")}>
+						<Link to={`/recipes/${recipe.slug}`} key={recipe.id}>
 							<div class="row">
 			            <div class="col s12">
-			            		<Recipe recipe={recipe} ranking={ranking} orden={index+1}/>
+			            		<Recipe recipe={recipe} ranking={false} orden={index+1}/>
 			            </div>
 			        </div>
 		        </Link>
 		      ))}
-			  </div>
+			  </div>	
+
 			</div>
 		)
 	}
