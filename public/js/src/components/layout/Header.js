@@ -12,7 +12,7 @@ export default class Header extends React.Component {
             </div>
             <div class="row">
                 <div class="col s12">
-                    <h2 class="center-align header__description">Las mejores recetas de cocina</h2>
+                    <h2 class="center-align header__description">The best cooking recipes</h2>
                 </div>
             </div>
         </div>

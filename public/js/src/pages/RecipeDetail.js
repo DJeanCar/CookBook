@@ -39,7 +39,7 @@ export default class RecipeDetail extends React.Component {
         <div class="container">
           <div class="row">
             <div class="col s12 regular">
-              <Link to="/" class="back-link">Regresar</Link>
+              <Link to="/" class="back-link">Return</Link>
             </div>
           </div>
         </div>

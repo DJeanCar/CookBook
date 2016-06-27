@@ -27,10 +27,10 @@ export default class Recipe extends React.Component {
         </div>
         <div class="row no-margin-bottom recipe__data">
             <div class="col s6">
-                <span>Por {recipe.chef}</span>
+                <span>By {recipe.chef}</span>
             </div>
             <div class="col s6 right-align">
-                <span class="recipe__publish_date regular">Publicado el {recipe.date}</span>
+                <span class="recipe__publish_date regular">{recipe.date}</span>
             </div>
         </div>
       </div>
