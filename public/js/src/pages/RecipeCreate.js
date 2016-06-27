@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router";
 
 import Recipe from "../models/Recipe";
+import { recipeStore } from "../stores";
+import { observer } from "mobx-react";
 
+@observer
 export default class RecipeCreate extends React.Component {
 
-  componentWillMount() {
-    this.props.setIngredientToOne();
-  }
-
   setIngredientsInput() {
-    const ingredients = Array.from(Array(this.props.ingredients).keys())
+    const ingredients = Array.from(Array(recipeStore.ingredients).keys())
     return <ul ref="ingredients">
       {ingredients.map((element, i) => {
         return (
@@ -30,21 +29,21 @@ export default class RecipeCreate extends React.Component {
   }
 
   addIngredients() {
-    this.props.addIngredient();
+    recipeStore.addIngredient();
   }
 
   saveRecipe(e) {
     e.preventDefault();
     const { chef, name, preparation, category } = this.refs;
     const ingredients = [];
-    for (let i = 0; i < this.props.ingredients; i++) {
+    for (let i = 0; i < recipeStore.ingredients; i++) {
       ingredients.push({
         name: this.refs[`ingredient${i}`].value,
         amount: this.refs[`amount${i}`].value
       });
     }
     const recipe = new Recipe(category.value, name.value, chef.value, preparation.value, ingredients);
-    this.props.addRecipe(recipe.toJson());
+    recipeStore.addRecipe(recipe.toJson());
     this.props.history.pushState(null, '/');
   }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { recipeStore } from "../stores";
 
 export default class RecipeDetail extends React.Component {
 
@@ -9,17 +10,13 @@ export default class RecipeDetail extends React.Component {
   }
 
   populateIngredients(recipe) {
-    recipe.get("ingredients").map(ingredient => {
-      console.log(ingredient[1]);
-      ingredient.map(aa => console.log(aa.get("name")));
-    });
-    if (recipe.get("ingredients") !== null) {
+    if (recipe.ingredients !== null) {
       return <ul class="recipe__ingredients">
-        {recipe.get("ingredients").map( (ingredient, index) => {
+        {recipe.ingredients.data.map( (ingredient, index) => {
           return (
             <li class='regular' key={index}>
-              <span class='bold'>{ingredient.get("name")}: </span>
-              <span>{ingredient.get("amount")}</span>
+              <span class='bold'>{ingredient.name}: </span>
+              <span>{ingredient.amount}</span>
             </li>
           );
         })}
@@ -28,7 +25,7 @@ export default class RecipeDetail extends React.Component {
   }
 
   render() {
-    const recipe  = this.props.currentRecipe;
+    const recipe  = recipeStore.getRecipe(this.props.params.slug);
     const band = false;
     return(
       <section class="recipes">
@@ -46,13 +43,13 @@ export default class RecipeDetail extends React.Component {
                 <div class="row no-margin-bottom">
                   <div class="col s12">
                     <div class="recipe__title">
-                      <h3>{recipe.get("name")}</h3>
+                      <h3>{recipe.name}</h3>
                     </div>
                   </div>
                   <div class="col s12"> 
                     <div class="recipe__options">
                       <a href="#!" class="btn waves-effect teal">Update</a>
-                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.get("slug"))}>Delete</button>
+                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.slug)}>Delete</button>
                     </div>
                   </div>
                 </div>
@@ -62,11 +59,11 @@ export default class RecipeDetail extends React.Component {
                 <div class="row">
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Chef: </div>
-                    <div class="regular">{recipe.get("chef")}</div>
+                    <div class="regular">{recipe.chef}</div>
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Category: </div>
-                    <div class="recipe__category chip regular">{recipe.get("category")}</div>
+                    <div class="recipe__category chip regular">{recipe.category}</div>
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <span class="bold recipe_info__subtitle subtitle">Ingredients: </span>
@@ -76,7 +73,7 @@ export default class RecipeDetail extends React.Component {
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Preparation: </div>
-                    <div class="regular">{recipe.get("preparation")}</div>
+                    <div class="regular">{recipe.preparation}</div>
                   </div>
                 </div>
               </div>
