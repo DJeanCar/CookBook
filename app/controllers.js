@@ -11,7 +11,7 @@ router.route('/')
 
 router.route('/api/recipes/add')
 
-  .post( (req, res) => {
+  .post((req, res) => {
     Recipe
       .forge({
         name: req.body.name,
@@ -29,9 +29,20 @@ router.route('/api/recipes/add')
       });
   });
 
+router.route('/api/recipes/:slug') 
+  
+  .get((req, res) => {
+    Recipe
+      .forge({slug: req.params.slug})
+      .fetch()
+      .then(recipe => {
+        return res.json(recipe);
+      });
+  });
+
 router.route('/api/recipes')
 
-  .get( (req, res) => {
+  .get((req, res) => {
     new Recipe()
       .fetchAll()
       .then(data => {

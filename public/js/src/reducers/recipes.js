@@ -1,6 +1,8 @@
 import { List, fromJS, Map } from "immutable";
 import { recipesFake } from "../fakeData/recipes";
-import { FETCH_RECIPES_REQUEST, FETCH_RECIPES_SUCCESS, ADD_RECIPES_SUCCESS, DELETE_RECIPES_SUCCESS, SEARCH_RECIPE } from "../actions";
+import { FETCH_RECIPES_REQUEST, FETCH_RECIPES_SUCCESS, 
+         ADD_RECIPES_SUCCESS, DELETE_RECIPES_SUCCESS, SEARCH_RECIPE, 
+         FETCH_RECIPES_DETAIL_REQUEST } from "../actions";
 
 const initialState = Map({
   isFetching: false,
