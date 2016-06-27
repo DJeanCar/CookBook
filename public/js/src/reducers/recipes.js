@@ -27,6 +27,7 @@ const recipes = (state=initialState, action) => {
       });
 
     case ADD_RECIPES_SUCCESS:
+      recipesFromServer.push(action.payload)
       return Map({
         ...state,
         data: state.get("data").push(fromJS(action.payload))
@@ -39,6 +40,7 @@ const recipes = (state=initialState, action) => {
             index = i;
           }
       });
+      recipesFromServer.splice(index, 1);
       return Map({
         ...state,
         data: state.get("data").splice(index,1)

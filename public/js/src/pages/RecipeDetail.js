@@ -10,8 +10,10 @@ export default class RecipeDetail extends React.Component {
 
   populateIngredients(recipe) {
     if (recipe.get("ingredients") !== null) {
+      console.log(recipe);
+      recipe.get("ingredients").get("data").map(ingredient => console.log(ingredient.name));
       return <ul class="recipe__ingredients">
-        {recipe.get("ingredients").map( (ingredient, index) => {
+        {recipe.get("ingredients").get("data").map( (ingredient, index) => {
           return (
             <li class='regular' key={index}>
               <span class='bold'>{ingredient.get("name")}: </span>

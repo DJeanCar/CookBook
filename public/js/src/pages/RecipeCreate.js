@@ -44,6 +44,9 @@ export default class RecipeCreate extends React.Component {
       });
     }
     const recipe = new Recipe(category.value, name.value, chef.value, preparation.value, ingredients);
+    console.log("****")
+    console.log(recipe.toJson());
+    console.log("****")
     this.props.addRecipe(recipe.toJson());
     this.props.history.pushState(null, '/');
   }
