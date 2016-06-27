@@ -68,7 +68,7 @@ export default class RecipeList extends React.Component {
 	      	</div>
 				</div>
 				<div class="container">
-					{recipes.map((recipe, index) => (
+					{recipes && recipes.map((recipe, index) => (
 						<Link to={`/recipes/${recipe.get("slug")}`} key={recipe.get("id")}>
 							<div class="row">
 			            <div class="col s12">

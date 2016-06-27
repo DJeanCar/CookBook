@@ -3,13 +3,19 @@ import { Link } from "react-router";
 
 export default class RecipeDetail extends React.Component {
 
+  componentWillMount() {
+    if (!this.props.currentRecipe) {
+      this.props.history.push('/');
+    }
+  }
+
   removeRecipe(slug) {
     this.props.deleteRecipe(slug);
-    this.props.history.pushState(null, '/');
+    this.props.history.push('/');
   }
 
   populateIngredients(recipe) {
-    if (recipe.get("ingredients") !== null) {
+    if (recipe && recipe.get("ingredients") !== null) {
       return <ul class="recipe__ingredients">
         {recipe.get("ingredients").get("data").map( (ingredient, index) => {
           return (
@@ -26,6 +32,7 @@ export default class RecipeDetail extends React.Component {
   render() {
     const recipe  = this.props.currentRecipe;
     const band = false;
+    const slug = recipe ? recipe.get("slug") : ""; 
     return(
       <section class="recipes">
         <div class="container">
@@ -42,13 +49,13 @@ export default class RecipeDetail extends React.Component {
                 <div class="row no-margin-bottom">
                   <div class="col s12">
                     <div class="recipe__title">
-                      <h3>{recipe.get("name")}</h3>
+                      <h3>{recipe && recipe.get("name")}</h3>
                     </div>
                   </div>
                   <div class="col s12"> 
                     <div class="recipe__options">
                       <a href="#!" class="btn waves-effect teal">Update</a>
-                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, recipe.get("slug"))}>Delete</button>
+                      <button class="btn waves-effect red" onClick={this.removeRecipe.bind(this, slug)}>Delete</button>
                     </div>
                   </div>
                 </div>
@@ -58,11 +65,11 @@ export default class RecipeDetail extends React.Component {
                 <div class="row">
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Chef: </div>
-                    <div class="regular">{recipe.get("chef")}</div>
+                    <div class="regular">{recipe && recipe.get("chef")}</div>
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Category: </div>
-                    <div class="recipe__category chip regular">{recipe.get("category")}</div>
+                    <div class="recipe__category chip regular">{recipe && recipe.get("category")}</div>
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <span class="bold recipe_info__subtitle subtitle">Ingredients: </span>
@@ -72,7 +79,7 @@ export default class RecipeDetail extends React.Component {
                   </div>
                   <div class="col s12 l6 recipe_info__item">
                     <div class="bold recipe_info__subtitle subtitle">Preparation: </div>
-                    <div class="regular">{recipe.get("preparation")}</div>
+                    <div class="regular">{recipe && recipe.get("preparation")}</div>
                   </div>
                 </div>
               </div>
