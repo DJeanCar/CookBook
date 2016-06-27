@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, ul, li {
   padding: 0; }
 
 input, textarea {
-  font-size: 1.3em !important; }
+  font-size: 1em !important; }
 
 label {
   font-size: 1em !important; }
@@ -59,10 +59,10 @@ body {
 
 .header__title {
   font-weight: bold;
-  font-size: 4em; }
+  font-size: 2.3em; }
 
 .header__description {
-  font-size: 26px; }
+  font-size: 1.3em; }
 
 .recipes {
   color: #546672;
@@ -84,7 +84,7 @@ body {
   font-size: 1.1em; }
 
 .subtitle {
-  font-size: 22px; }
+  font-size: 1.2em; }
 
 .recipe {
   padding: 1.5em 3em; }
@@ -97,7 +97,7 @@ body {
 
 .recipe__name {
   font-weight: bold;
-  font-size: 24px; }
+  font-size: 1.2em; }
 
 .recipe__data {
   font-style: italic; }
@@ -139,7 +139,7 @@ body {
   display: flex; }
 
 .recipe__title h3 {
-  font-size: 2.5em; }
+  font-size: 2em; }
 
 .recipe__header {
   padding-bottom: 1em;
@@ -182,7 +182,7 @@ body {
   margin: 2em 0; }
 
 .star {
-  font-size: 1.5em; }
+  font-size: 1.2em; }
 
 .star-list {
   color: #fbc02d;
@@ -195,7 +195,7 @@ body {
   background: white; }
 
 .regular {
-  font-size: 1.2em; }
+  font-size: .9em; }
 
 .position {
   color: #ffffff;
