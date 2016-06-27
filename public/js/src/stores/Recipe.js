@@ -21,6 +21,7 @@ export default class Recipe {
     if (response.body.isSave) {
       this.recipes.push(recipe);
       this.recipesFromServer.push(recipe);
+      this.ingredients = 1;
     }
   }
 

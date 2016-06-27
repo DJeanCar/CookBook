@@ -6,7 +6,7 @@ export default class RecipeDetail extends React.Component {
 
   removeRecipe(slug) {
     recipeStore.deleteRecipe(slug);
-    this.props.history.pushState(null, '/');
+    this.props.history.push("/");
   }
 
   populateIngredients(recipe) {

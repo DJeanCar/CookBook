@@ -6,18 +6,16 @@ import { rankingStore } from "../stores";
 export default class Recipe extends React.Component {
 
   isRanking(ranking, orden) {
-    console.log(rankingStore.ranking);
     if (rankingStore.ranking) {
       return <div class="position center-align">{orden}</div>;
     }
   }
 
 	render() {
-    // const { recipe, ranking, orden } = this.props;
     const { recipe, orden } = this.props;
 		return(
 			<div class="recipe card">
-        {this.isRanking(false, orden)}
+        {this.isRanking(rankingStore.ranking, orden)}
         <div class="row valign-wrapper">
             <div class="col s6">
                 <span class="recipe__name">{recipe.name}</span>
