@@ -5,7 +5,7 @@ import { recipeStore } from "../stores";
 export default class RecipeDetail extends React.Component {
 
   removeRecipe(slug) {
-    this.props.deleteRecipe(slug);
+    recipeStore.deleteRecipe(slug);
     this.props.history.pushState(null, '/');
   }
 

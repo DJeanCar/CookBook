@@ -12,7 +12,7 @@ export default class Recipe {
     this.preparation = preparation;
     this.date = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()}`;
     this.stars = Math.floor((Math.random() * 5) + 1);
-    this.ingredients = ingredients;
+    this.ingredients = {"data": ingredients};
   }
 
   toJson() {

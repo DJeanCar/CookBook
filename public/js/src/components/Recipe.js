@@ -1,11 +1,13 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { rankingStore } from "../stores";
 
 @observer
 export default class Recipe extends React.Component {
 
   isRanking(ranking, orden) {
-    if (ranking) {
+    console.log(rankingStore.ranking);
+    if (rankingStore.ranking) {
       return <div class="position center-align">{orden}</div>;
     }
   }

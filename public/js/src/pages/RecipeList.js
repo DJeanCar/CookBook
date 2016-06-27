@@ -1,33 +1,29 @@
 import React from "react";
 import { Link } from "react-router";
 import Recipe from "../components/Recipe";
-import { recipeStore } from "../stores";
+import { recipeStore, rankingStore } from "../stores";
 import { observer } from "mobx-react";
 
 @observer
 export default class RecipeList extends React.Component {
 
-	componentWillMount() {
-		// this.props.fetchRecipes();
-	}
-
 	onSubmit(e) {
 		const input = e.target;
 		setTimeout(() => {
 			const name = input.value;
-			this.props.searchRecipe(name);
+			recipeStore.searchRecipe(name);
 		}, 1);
 	}
 
 	changeToRanking() {
-		if (!this.props.ranking) {
-			this.props.changeToRanking(!this.props.ranking);
+		if (!rankingStore.ranking) {
+			rankingStore.changeToRanking(!rankingStore.ranking);
 		}
 	}
 
 	changeToRecently() {
-		if (this.props.ranking) {
-			this.props.changeToRanking(!this.props.ranking);
+		if (rankingStore.ranking) {
+			rankingStore.changeToRanking(!rankingStore.ranking);
 		}
 	}
 
@@ -55,7 +51,7 @@ export default class RecipeList extends React.Component {
 					<div class="row valign-wrapper">
 	          <div class="col s6 m5 l6 valign">
 	              <span class="subtitle bold">Recipes</span>
-	              {this.menuActive(false)}
+	              {this.menuActive(rankingStore.ranking)}
 	          </div>
 	          <div class="col s4 m5 l4 valign input-field">
 	                  <i class="material-icons prefix"></i>

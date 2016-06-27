@@ -21,7 +21,7 @@ router.route('/api/recipes/add')
         preparation: req.body.preparation,
         date: req.body.date,
         stars: req.body.stars,
-        ingredients: {"data": req.body.ingredients}
+        ingredients: req.body.ingredients
       })
       .save()
       .then(recipe => {
