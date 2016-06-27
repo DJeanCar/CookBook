@@ -1,4 +1,4 @@
-# CookBook App builded on Express on the server side and React + Redux and React + Mobx on client side.
+# CookBook App builded on Express on the server side and React + Redux || React + Mobx on client side.
 
 Branches:
 
